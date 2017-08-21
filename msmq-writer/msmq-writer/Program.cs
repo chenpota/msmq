@@ -6,7 +6,8 @@ namespace msmq_writer
     class Program
     {
         //private const String QueueName = @".\Private$\my-test-queue";
-        private const String QueueName = @"FormatName:DIRECT=TCP:192.168.56.102\Private$\my-test-queue";
+        //private const String QueueName = @"FormatName:DIRECT=TCP:192.168.56.102\Private$\my-test-queue";
+        private const String QueueName = @"FormatName:DIRECT=HTTP://192.168.56.102/msmq/Private$\my-test-queue";
         private const String MyMsg = "test message...";
 
         static void Main(string[] args)

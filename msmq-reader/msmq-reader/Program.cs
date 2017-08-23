@@ -22,7 +22,7 @@ namespace msmq_reader
                 });
 
             Message myMsg = myQueue.Receive();
-
+            Console.WriteLine(myMsg.Label);
             Console.WriteLine((String)myMsg.Body);
 
             myQueue.Close();

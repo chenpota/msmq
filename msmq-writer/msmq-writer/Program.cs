@@ -5,16 +5,16 @@ namespace msmq_writer
 {
     class Program
     {
-        //private const String QueueName = @".\Private$\my-test-queue";
-        //private const String QueueName = @"FormatName:DIRECT=TCP:192.168.56.102\Private$\my-test-queue";
-        private const String QueueName = @"FormatName:DIRECT=HTTP://192.168.56.102/msmq/Private$\my-test-queue";
+        private const String QueueName = @".\Private$\my-test-queue";
+        //private const String QueueName = @"FormatName:DIRECT=TCP:localhost\Private$\my-test-queue";
+        //private const String QueueName = @"FormatName:DIRECT=HTTP://localhost/msmq/Private$\my-test-queue";
         private const String MyMsg = "test message...";
 
         static void Main(string[] args)
         {
             MessageQueue myQueue = new MessageQueue(QueueName);
 
-            /*if (myQueue.Transactional == true)
+            if (myQueue.Transactional == true)
             {
                 MessageQueueTransaction myTransaction = new  MessageQueueTransaction();
 
@@ -24,9 +24,9 @@ namespace msmq_writer
 
                 myTransaction.Commit();
             }
-            else*/
+            else
             {
-                myQueue.Send(MyMsg);
+                myQueue.Send(MyMsg, "label");
             }
 
             myQueue.Close();
